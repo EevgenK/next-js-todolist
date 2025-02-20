@@ -7,12 +7,17 @@ interface PostTodo {
   completed: boolean;
 }
 export const getTodosList = async (page: number = 10) => {
-  const { data } = await axios.get(`${baseUrl}`, {
-    params: {
-      _limit: page,
-    },
-  });
-  return data;
+  try {
+    const { data } = await axios.get(`${baseUrl}`, {
+      params: {
+        _limit: page,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
 export const deleteTodo = async (id: number) =>

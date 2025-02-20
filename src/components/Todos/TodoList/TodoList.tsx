@@ -8,7 +8,7 @@ interface TodoListProps {
 
 const TodoList = ({ items, remove, change }: TodoListProps) => {
   return (
-    <ul className="flex gap-2 flex-col ">
+    <ul className="flex gap-2 flex-col">
       {...items.map((todo) => (
         <TodoItem
           onDelete={remove}
